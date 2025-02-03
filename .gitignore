@@ -1,0 +1,6 @@
+.venv
+result/
+sf2
+.DS_Store
+**/credential
+**/__pycache__
