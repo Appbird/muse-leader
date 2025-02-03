@@ -1,11 +1,122 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
+
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/skeleton.css">
+    <link rel="stylesheet" href="css/utility.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>MuseLeader</title>
 </head>
+
 <body>
-    Test
+    <header>
+        <div class="container">
+            <h1 class="u-pagetitle">MuseLeader: Toward Music Editing through Time-series Semantic Parameters Control using Large Language Model</h1>
+            <ul>
+                <li>Ryosei Kawaguchi (Kwansei Gakuin University)</li>
+                <li>Haruhiro Katayose (Kwansei Gakuin University)</li>
+            </ul>
+
+        </div>
+    </header>
+    <div class="container">
+        <div class="row">
+            <section>
+                <h2>Paper</h2>
+                <li>under review</li>
+            </section>
+            <section>
+                <h2>Abstract</h2>
+                <iframe width="100%" height="500" src="https://www.youtube.com/embed/Zk99iQE-TxE?si=qduQ0qIHPBLHdHmD"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <p>
+                    As an application of generative AI, systems that allow users to control the content of generated outputs
+		through parameters are being actively developed.
+		For content with temporal structures, such as music and stories,
+		systems have been proposed that enable editing using adjectives as time-series parameters.
+		For example, in the story generation system TaleBrush, users can set the main character's happiness level along a timeline,
+		while in the music generation system SOUNDRAW, users can adjust the intensity of the music every four measures.
+		However, these systems have fixed controllable parameters.
+		To address this limitation, we propose a system that leverages large language models (LLMs) to enable users
+		to define custom parameters for music generation.
+		As a result, although the concept remains somewhat limited,
+		we confirmed that users can control generated outputs in a time-series manner based on specific attributes,
+		such as "strength," "elation." This paper reports on these findings and discusses future challenges.
+                </p>
+            </section>
+
+            <section>
+                <h2>Editing</h2>
+                <div class="u-center">
+                    <img src="img/fig1_interface_of_muse_leader.jpg">
+                </div>
+                <div class="u-center">
+                    <p>Fig.1 Interface of MuseLeader</p>
+                </div>
+                <div class="u-center">
+                    <img src="img/fig2_system_composition_of_muse_leader.jpg">
+                </div>
+                <div class="u-center">
+                    <p>Fig.2 System composition of MuseLeader</p>
+                </div>
+                
+                <section>
+                    <h2>Prompts for stable editing</h2>
+                    This section shows prompts for agents.
+                    <ol>
+                        <li>
+                            <strong>Leader Agents:</strong>
+                            <a href="https://github.com/Appbird/muse-leader/blob/main/src/prompt/leader.txt"
+                                target="_blank">
+                                prompt example
+                            </a>
+                        </li>
+                        <li>
+                            <strong>Chord Agents:</strong>
+                            <a href="https://github.com/Appbird/muse-leader/blob/main/src/prompt/chord_agent.txt"
+                                target="_blank">
+                                prompt example
+                            </a>
+                        </li>
+                        <li>
+                            <strong>Instrumet Agent:</strong>
+                            <a href="https://github.com/Appbird/muse-leader/blob/main/src/prompt/instrument_agent.txt"
+                                target="_blank">
+                                prompt example
+                            </a>
+                        </li>
+                        <li>
+                            <strong>Melody Agent:</strong>
+                            <a href="https://github.com/Appbird/muse-leader/blob/main/src/prompt/melody_agent.txt"
+                                target="_blank">
+                                prompt example
+                            </a>
+                        </li>
+                    </ol>
+                </section>
+                <section>
+                    <h2>Detail</h2>
+                    <h3>Tools</h3>
+                    <p>We use these tools for rendering abc format.</p>
+                    <ul>
+                        <li>abc2midi ver 4.93</li>
+                        <li>fluidsynth ver 2.3.4</li>
+                        <li>soundfont: <a href="https://schristiancollins.com/generaluser.php">GeneralUser GS 1.471</a>
+                        </li>
+                    </ul>
+                </section>
+        </div>
+    </div>
 </body>
+
 </html>
