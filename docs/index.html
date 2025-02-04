@@ -60,25 +60,24 @@
 
             <section>
                 <h2>Interface Design</h2>
-                Time-series semantic parameters provide an interface
-                to capture the evolution of a musical piece over time
-                by specifying a mood and its intensity transition.
-                Users adjust the mood's intensity at different time points
-                by dragging circular markers (Figure 1(b)),
-                and they select a specific mood by entering its name in the accompanying text box (Figure 1(a)).
-                For example, entering ``intensity'' prompts the system to manage changes in the music's intensity;
-                throughout the text, this is referred to as the ``parameter axis.''
-                When the submit button is pressed, the system generates a musical piece with both a melody and a chord progression,
-                assigning instruments accordingly.
-                After generation, modifying parameters updates only the corresponding portions while preserving the overall motif;
-                if only a subset of parameters is changed, only those specific sections are updated.
-
                 <div class="u-center">
                     <img src="img/fig1_interface_of_muse_leader.jpg">
                 </div>
                 <div class="u-center">
                     <p>Fig.1 Interface of MuseLeader</p>
                 </div>
+                Time-series semantic parameters provide an interface
+                to capture the evolution of a musical piece over time
+                by specifying a mood and its intensity transition.
+                Users adjust the mood's intensity at different time points
+                by dragging circular markers (Figure 1(b)),
+                and they select a specific mood by entering its name in the accompanying text box (Figure 1(a)).
+                For example, entering "intensity" prompts the system to manage changes in the music's intensity;
+                throughout the text, this is referred to as "the parameter axis."
+                When the submit button is pressed, the system generates a musical piece with both a melody and a chord progression,
+                assigning instruments accordingly.
+                After generation, modifying parameters updates only the corresponding portions while preserving the overall motif;
+                if only a subset of parameters is changed, only those specific sections are updated.
                 
                 
             </section>
@@ -87,19 +86,17 @@
                 <h2>Editing Examples</h2>
                 <p>This system presents the generated music pieces and the editing results through parameter control.</p>
     
-                
                 <p>
-                    The <strong>time-series semantic parameters</strong> allow you to control the development of a piece by specifying the desired mood and its intensity transitions.<br>
-                    This intensity is represented as a numerical value between <strong>0.0 and 1.0</strong> and can be set for every four measures.<br>
+                    The mood's intensity is represented as a numerical value between <strong>0.0 and 1.0</strong> and can be set for every four measures.
                     The higher the intensity value in a given section, the more strongly that mood is expected to be reflected in the music.
                 </p>
                 
                 <p>Example: An input of <strong>Brightness: 0.00 → 0.25 → 0.50 → 1.00</strong> means:</p>
                 <ul>
-                    <li>Measures 1–4 will have a brightness of 0.00</li>
-                    <li>Measures 5–8 will have a brightness of 0.25</li>
-                    <li>Measures 9–12 will have a brightness of 0.50</li>
-                    <li>Measures 13–16 will have a brightness of 1.00</li>
+                    <li>Measures 1–4 are expected to have no brightness.(0.00)</li>
+                    <li>Measures 5–8 are expected to have little brightness. (0.25)</li>
+                    <li>Measures 9–12 are expected to have a little brightness of 0.50</li>
+                    <li>Measures 13–16 are expected to have brightness of 1.00</li>
                 </ul>
                 
                 <h2>Generated Music Pieces</h2>
@@ -111,18 +108,11 @@
                 </ul>
                 
                 <p>
-                    For the moods used in generation, we adopt those that were actually used by participants in a <strong>user study</strong>.<br>
+                    For the moods used in generation, we adopt those that were actually used by participants in a user study.
                     The expressions in parentheses represent the original Japanese terms used by the participants, as some nuances are difficult to translate directly into English.
                 </p>
                 
                 <p>The music pieces were generated using <strong>gpt-4o-2024-11-20</strong>.</p>
-                <h3> Trends </h3>
-                <ul>
-                    <li> (+) Elements that are closely tied to a musical style and can be expressed through instrument selection can be handled.</li>
-                    <li> (+) Only sections with changed parameters are subject to editing, preserving the motif of the piece.</li>
-                    <li> (-) Concepts that can have multiple musical styles, abstract concepts, or those that complicate chord progressions cannot be handled.</li>
-                    <li> (-) Variations in music editing are limited.</li>
-                </ul>
                 <table>
                     <tr>
                         <th>Parameter-Axis</th>
@@ -180,16 +170,22 @@
                     </tr>
                 </table>
                 
-                
+                <h3> Trends </h3>
+                <ul>
+                    <li> (+) Elements that are closely tied to a musical style and can be expressed through instrument selection can be handled.</li>
+                    <li> (+) Only sections with changed parameters are subject to editing, preserving the motif of the piece.</li>
+                    <li> (-) Concepts that can have multiple musical styles, abstract concepts, or those that complicate chord progressions cannot be handled.</li>
+                    <li> (-) Variations in music editing are limited.</li>
+                </ul>
                 
             </section>
             <section>
                 <h2>Implementation</h2>
                 <div class="u-center">
-                    <img src="img/fig1_interface_of_muse_leader.jpg">
+                    <img src="img/fig2_system_composition_of_muse_leader.jpg">
                 </div>
                 <div class="u-center">
-                    <p>Fig.1 Interface of MuseLeader</p>
+                    <p>Fig.2 System composition of MuseLeader</p>
                 </div>
                 <h3> on gpt4o-2024-08-06 </h3>
                 <p>We utilize the inference capabilities of a large-scale language model (gpt-4o-2024-08-06) to associate specified words with editing operations along the axis designated by the user.
@@ -197,7 +193,7 @@
                 For example, when a user specifies a particular measure range and requests changes to the melody or chords,
                 unintended sections or other musical elements may be significantly altered.
                 This makes it difficult to reflects the user's intended progression.
-                To address this issue, we further refined the LLM's prompts.
+                To address this issue, we refine the LLM's prompts.
                 </p>
                 <p><span class="u-strong">Task Decomposition:</span>
                         Inspired by ComposerX,
@@ -213,24 +209,12 @@
                         documented in a table. Other agents use it to decide which sections to edit.
                     </p>
                 <p><span class="u-strong">Use of Four-Measure Delimiters:</span>
-                    Drawing from MuPT\citep{MuPT}, which employs a delimiter (``\texttt{<|>}''),
-                    our system instructs the LLM to insert newlines every four measure and comments (e.g., ``\texttt{\% measure [start]-[end]}'')
+                    Drawing from MuPT, which employs a delimiter (<code><|></code>),
+                    our system instructs the LLM to insert newlines every four measure and comments (e.g., <code>% measure [start]-[end]</code>)
                     to clearly show editable sections, simplifying the agents' identification of target areas.
                 </p>
-                <p>
-                    These techniques have ensured the editing capability for time-series parameters.<br>
-                    However, this paper does not investigate the optimality of these prompt engineering techniques.<br>
-                    While the combined methods have been confirmed to be effective, it cannot be concluded that this particular prompt combination is the optimal approach for time-series control.<br>
-                    It is necessary to demonstrate the effectiveness of these techniques quantitatively and with a sufficient number of trials.<br>
-                    Establishing such evaluation methods and optimizing prompt design are important challenges for future research.<br>
-                    Moreover, these techniques may become unnecessary with advancements in the inference capabilities of large-scale language models in the future.
-                </p>
-                <div class="u-center">
-                    <img src="img/fig2_system_composition_of_muse_leader.jpg">
-                </div>
-                <div class="u-center">
-                    <p>Fig.2 System composition of MuseLeader</p>
-                </div>
+                
+                <p>以下、実際に各エージェントに対して利用されたプロンプトを例示します。</p>
                 <ol>
                     <li>
                         <strong>Leader Agents:</strong>
@@ -261,6 +245,15 @@
                         </a>
                     </li>
                 </ol>
+
+                <p>
+                    These techniques have ensured the editing capability for time-series parameters.
+                    However, this paper does not investigate the optimality of these prompt engineering techniques.
+                    While the combined methods have been confirmed to be effective, it cannot be concluded that this particular prompt combination is the optimal approach for time-series control.
+                    It is necessary to demonstrate the effectiveness of these techniques quantitatively and with a sufficient number of trials.
+                    Establishing such evaluation methods and optimizing prompt design are important challenges for future research.
+                    Moreover, these techniques may become unnecessary with advancements in the inference capabilities of large-scale language models in the future.
+                </p>
             </section>
             <section>
                 <h2>Tools</h2>
@@ -275,13 +268,9 @@
 
             <section>
                 <h2>Reference</h2>
-                <p>We use these tools for rendering abc format.</p>
-                <ul>
-                    <li>abc2midi ver 4.93</li>
-                    <li>fluidsynth ver 2.3.4</li>
-                    <li>soundfont: <a href="https://schristiancollins.com/generaluser.php">GeneralUser GS 1.471</a>
-                    </li>
-                </ul>
+                <ol>
+                    <li></li>
+                </ol>
             </section>
         </div>
     </div>
