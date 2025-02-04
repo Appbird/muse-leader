@@ -87,16 +87,7 @@
                 <p>
                     The mood's intensity is represented as a numerical value between <strong>0.0 and 1.0</strong> and can be set for <strong>every 4 measures</strong>.
                     The higher the intensity value in a given section, the more strongly that mood is expected to be reflected in the music.
-                    For the moods used in generation, we adopt axis used by participants in a user study.
-                    The words in parentheses represent the original Japanese terms used by the participants, as some nuances are difficult to translate directly into English.
                 </p>
-                
-                <p>The music pieces listed below were generated based on the moods specified in the leftmost cell of each row (e.g., "Brightness") under the following input conditions:</p>
-                <ul>
-                    <li><strong>(a)</strong> The input <strong>0.00 → 0.25 → 0.50 → 1.00</strong> is provided.</li>
-                    <li><strong>(b)</strong> Based on the generated piece (a), a slightly modified input <strong>0.00 → 0.25 → 0.50 → 1.00</strong> is given.</li>
-                    <li><strong>(c)</strong> Based on the generated piece (b), a slightly modified input <strong>1.00 → 0.75 → 0.50 → 0.00</strong> is given.</li>
-                </ul>
                 
                 <p>The music pieces were generated using <strong>gpt-4o-2024-11-20</strong>.</p>
                 <table>
@@ -176,31 +167,24 @@
                 <h3> on gpt4o-2024-08-06 </h3>
                 <p>We utilize the inference capabilities of a large-scale language model (gpt-4o-2024-08-06) to associate specified words with editing operations along the axis designated by the user.
                 However, the system struggles to accurately reflect user intent in time-series control.
-                For example, when a user specifies a particular measure range and requests changes to the melody or chords,
-                unintended sections or other musical elements may be significantly altered.
-                This makes it difficult to reflects the user's intended progression.
                 To address this issue, we refine the LLM's prompts.
                 </p>
                 <p><span class="u-strong">Task Decomposition:</span>
                         Inspired by ComposerX,
                         our system splits the composition task among multiple LLM agents—a leader, melody, chord, and instrument agent.
-                        The leader designs the overall structure while the others sequentially determine chord progressions and melodies,
-                        thereby reducing task complexity.
+                        
                 </p>
                 
                 <p><span class="u-strong">Planning of Musical Elements:</span>
-                        Following WavJourney,
-                        which converts user instructions into a table of musical elements,
-                        our system has the leader plan musical elements in four-measure segments
+                        The leader plan musical elements in four-measure segments
                         documented in a table. Other agents use it to decide which sections to edit.
                     </p>
                 <p><span class="u-strong">Use of Four-Measure Delimiters:</span>
-                    Drawing from MuPT, which employs a delimiter (<code><|></code>),
                     our system instructs the LLM to insert newlines every four measure and comments (e.g., <code>% measure [start]-[end]</code>)
-                    to clearly show editable sections, simplifying the agents' identification of target areas.
+                    to clearly show which sections should be edited.
                 </p>
                 
-                <p>以下、実際に各エージェントに対して利用されたプロンプトを例示します。</p>
+                <p>Below are examples of prompts actually used for each agent.</p>
                 <ol>
                     <li>
                         <strong>Leader Agents:</strong>
@@ -233,10 +217,7 @@
                 </ol>
 
                 <p>
-                    These techniques have ensured the editing capability for time-series parameters.
-                    However, this paper does not investigate the optimality of these prompt engineering techniques.
-                    While the combined methods have been confirmed to be effective, it cannot be concluded that this particular prompt combination is the optimal approach for time-series control.
-                    It is necessary to demonstrate the effectiveness of these techniques quantitatively and with a sufficient number of trials.
+                    This paper does not investigate the optimality of these prompt engineering techniques.
                     Establishing such evaluation methods and optimizing prompt design are important challenges for future research.
                     Moreover, these techniques may become unnecessary with advancements in the inference capabilities of large-scale language models in the future.
                 </p>
