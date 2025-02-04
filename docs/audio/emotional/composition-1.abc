@@ -1,0 +1,39 @@
+X:1
+T:Emotion Build Song Revised
+M:4/4
+L:1/4
+Q:1/4 = 120
+K:C
+%%MIDI gchord c2c2
+%%MIDI chordname Maj7 0 4 7 11
+%%MIDI chordname maj9 0 4 7 11 14
+%%MIDI chordname Maj9 0 4 7 11 14
+%%MIDI chordname min6 0 3 7 9
+%%MIDI chordname m11 0 3 7 10 14 17
+%%MIDI chordname 13 0 4 7 10 14 21
+%%MIDI chordname m13 0 3 7 10 14 21
+%%MIDI chordname 7#9 0 4 7 10 15
+%%MIDI chordname 7#11 0 4 7 10 18
+%%MIDI chordname 7#13 0 4 7 10 22
+%%MIDI chordname 7b9 0 4 7 10 13
+%%MIDI chordname 7b11 0 4 7 10 16
+%%MIDI chordname 7b13 0 4 7 10 20
+%%MIDI chordname add9 0 4 7 14
+%%MIDI chordname add11 0 4 7 17
+%%MIDI chordname add13 0 4 7 21
+%%MIDI program 1   % メロディ楽器: ピアノ
+%%MIDI chordprog 48  % コード楽器: ストリングス（パッド系）
+%%MIDI bassprog 25  % ベース楽器: アコースティック・ギター（アルペジオ）
+| "C" C2 E2 | "Am" A2 C2 | "F" F2 A2 | "G" G2 B2 | % measure 1-4
+%%MIDI program 1   % メロディ楽器: ピアノ
+%%MIDI chordprog 48  % コード楽器: ストリングス（パッド系）
+%%MIDI bassprog 73  % ベース楽器: ウッドウィンド系楽器
+| "C" C2 E2 | "G" G2 B2 | "Am" A2 C2 | "F" F2 A2 | % measure 5-8
+%%MIDI program 1   % メロディ楽器: ピアノ
+%%MIDI chordprog 48  % コード楽器: ストリングス（パッド系）
+%%MIDI bassprog 33  % ベース楽器: エレクトリック・ベース
+| "C" E2 G2 | "G" G2 D2 | "F" F2 A2 | "G" G2 B2 | % measure 9-12
+%%MIDI program 1   % メロディ楽器: ピアノ
+%%MIDI chordprog 48  % コード楽器: ストリングス（パッド系）
+%%MIDI bassprog 74  % ベース楽器: フルート（サブメロディ）
+| "C" C2 G2 | "G" G2 E2 | "F" F2 A2 | "G" G2 B2 | % measure 13-16

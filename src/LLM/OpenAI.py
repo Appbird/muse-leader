@@ -5,6 +5,7 @@ import utility.important_path as IPATH
 
 class Model(Enum):
     gpt_4o_2024_11_20       = "gpt-4o-2024-11-20"
+    gpt_4o_2024_08_06       = "gpt-4o-2024-08-06"
     gpt_4o_2024_05_13       = "gpt-4o-2024-05-13"
     gpt_4_turbo_2024_04_09  = "gpt-4-turbo-2024-04-09"
     gpt_4_0613              = "gpt-4-0613"

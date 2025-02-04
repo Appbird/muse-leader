@@ -1,0 +1,39 @@
+X: 1
+T: Classic Evolution Melody
+M: 4/4
+L: 1/4
+Q: 1/4=120
+K: C
+%%MIDI gchord c2c2
+%%MIDI chordname Maj7 0 4 7 11
+%%MIDI chordname maj9 0 4 7 11 14
+%%MIDI chordname Maj9 0 4 7 11 14
+%%MIDI chordname min6 0 3 7 9
+%%MIDI chordname m11 0 3 7 10 14 17
+%%MIDI chordname 13 0 4 7 10 14 21
+%%MIDI chordname m13 0 3 7 10 14 21
+%%MIDI chordname 7#9 0 4 7 10 15
+%%MIDI chordname 7#11 0 4 7 10 18
+%%MIDI chordname 7#13 0 4 7 10 22
+%%MIDI chordname 7b9 0 4 7 10 13
+%%MIDI chordname 7b11 0 4 7 10 16
+%%MIDI chordname 7b13 0 4 7 10 20
+%%MIDI chordname add9 0 4 7 14
+%%MIDI chordname add11 0 4 7 17
+%%MIDI chordname add13 0 4 7 21
+%%MIDI program 5 % Electric Piano 1 (エレクトリックピアノ)
+%%MIDI chordprog 25 % Acoustic Guitar (アコースティックギター)
+%%MIDI bassprog 33 % Acoustic Bass (エレクトリックベース)
+| "C" C2 E2 | "F" F2 G2 | "G" G2 D2 | "C" E4 | % measure 1-4
+%%MIDI program 48 % String Ensemble 1 (ストリング・アンサンブル)
+%%MIDI chordprog 24 % Nylon String Guitar (クラシックギター)
+%%MIDI bassprog 32 % Acoustic Bass (コントラバス)
+| "C" E2 G2 | "G" F2 D2 | "Am" A2 C2 | "F" F4 | % measure 5-8
+%%MIDI program 1 % Acoustic Grand Piano (グランドピアノ)
+%%MIDI chordprog 41 % Violin (バイオリンセクション)
+%%MIDI bassprog 32 % Acoustic Bass (コントラバス)
+| "Dm" D2 F2 | "G" G2 E2 | "C" C3 E | "G7" F4 | % measure 9-12
+%%MIDI program 1 % Acoustic Grand Piano (グランドピアノ)
+%%MIDI chordprog 49 % Strings (フルオーケストラ)
+%%MIDI bassprog 42 % Cello (チェロ＆コントラバス)
+| "C" E2 G2 | "Am" A2 C2 | "Dm" F2 A2 | "G7" G4 | "C" C4 | % measure 13-16

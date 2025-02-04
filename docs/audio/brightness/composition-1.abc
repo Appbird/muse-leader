@@ -1,0 +1,40 @@
+X: 1
+T: Brightening Journey Revised
+M: 4/4
+L: 1/4
+Q: 1/4=100
+K: Am
+V:1
+%%MIDI gchord c2c2
+%%MIDI chordname Maj7 0 4 7 11
+%%MIDI chordname maj9 0 4 7 11 14
+%%MIDI chordname Maj9 0 4 7 11 14
+%%MIDI chordname min6 0 3 7 9
+%%MIDI chordname m11 0 3 7 10 14 17
+%%MIDI chordname 13 0 4 7 10 14 21
+%%MIDI chordname m13 0 3 7 10 14 21
+%%MIDI chordname 7#9 0 4 7 10 15
+%%MIDI chordname 7#11 0 4 7 10 18
+%%MIDI chordname 7#13 0 4 7 10 22
+%%MIDI chordname 7b9 0 4 7 10 13
+%%MIDI chordname 7b11 0 4 7 10 16
+%%MIDI chordname 7b13 0 4 7 10 20
+%%MIDI chordname add9 0 4 7 14
+%%MIDI chordname add11 0 4 7 17
+%%MIDI chordname add13 0 4 7 21
+%%MIDI program 1
+%%MIDI chordprog 25
+%%MIDI bassprog 32
+| "Am" A2 cB | "F" A2 G2 | "G" B2 AB | "Dm" d2 cB | % measure 1-4
+%%MIDI program 1
+%%MIDI chordprog 48
+%%MIDI bassprog 32
+| "Bm7b5" Bc de | "E" e2 dB | "Am" cB AG | "G" G2 F2 | % measure 5-8
+%%MIDI program 1
+%%MIDI chordprog 49
+%%MIDI bassprog 34
+| "C" CDEG | "F" FGA2 | "G" GFED | "Am" ABc2 | % measure 9-12
+%%MIDI program 1
+%%MIDI chordprog 62
+%%MIDI bassprog 34
+| "C" CDEF | "G" GABc | "Am" ABcA | "F" FGAB | "C" C4 | % measure 13-16

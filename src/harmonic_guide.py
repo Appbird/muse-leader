@@ -22,17 +22,16 @@ instrument_prompt_textfile = "instrument_agent.txt"
 
 
 def write_condition_section(log:TextIOWrapper):
+    date = EXE_DATETIME.strftime("%Y-%m-%d %H:%M:%S")
     log.write(
         f"# Experimental Conditions\n"
-        f"|Params|value|\n"
-        f"|---|---|\n"
-        f"|date|\t{EXE_DATETIME.strftime("%Y-%m-%d %H:%M:%S")}|\n"
-        f"|all model|\t{MODEL.value}|\n"
-        f"|leader prompt|\t{MODEL.value}|\n"
-        f"|melody_agent prompt|\t{MODEL.value}|\n"
-        f"|melody_agent prompt|\t{MODEL.value}|\n"
-        f"|composer_textfile|\t{MODEL.value}|\n"
-        "\n"
+        f"|Params|value|\n" +
+        f"|---|---|\n" +
+        f"|date|\t{ date }|\n" +
+        f"|all model|\t{MODEL.value}|\n" + 
+        f"|leader prompt|\t{MODEL.value}|\n" +
+        f"|composer_textfile|\t{MODEL.value}|\n" +
+        "\n" +
         "\n"
     )
 
@@ -138,7 +137,7 @@ def experiment(dst:Path):
 
 
 if __name__ == "__main__":
-    FOLDER_NAME = "icec2024"
+    FOLDER_NAME = "ifip-icec2025"
     target_path = RESULT(FOLDER_NAME, EXE_DATETIME)
     experiment(dst=target_path)
 

@@ -1,0 +1,41 @@
+X:1
+T:Reversed Intensity
+M:4/4
+L:1/4
+Q:1/4=140
+K:Cm
+V:1
+%%MIDI gchord c2c2
+%%MIDI chordname Maj7 0 4 7 11
+%%MIDI chordname maj9 0 4 7 11 14
+%%MIDI chordname Maj9 0 4 7 11 14
+%%MIDI chordname min6 0 3 7 9
+%%MIDI chordname m11 0 3 7 10 14 17
+%%MIDI chordname 13 0 4 7 10 14 21
+%%MIDI chordname m13 0 3 7 10 14 21
+%%MIDI chordname 7#9 0 4 7 10 15
+%%MIDI chordname 7#11 0 4 7 10 18
+%%MIDI chordname 7#13 0 4 7 10 22
+%%MIDI chordname 7b9 0 4 7 10 13
+%%MIDI chordname 7b11 0 4 7 10 16
+%%MIDI chordname 7b13 0 4 7 10 20
+%%MIDI chordname add9 0 4 7 14
+%%MIDI chordname add11 0 4 7 17
+%%MIDI chordname add13 0 4 7 21
+%%MIDI program 30  % メロディ: エレキギター (リード)
+%%MIDI chordprog 62  % コード: ブラスセクション
+%%MIDI bassprog 33  % ベース: エレキベース
+| "Am" A2 C2 | "F" F2 A2 | "G7" G2 B2 | "Am" A2 C2 | % measure 1-4
+%%MIDI program 1  % メロディ: ピアノ
+%%MIDI chordprog 25  % コード: アコースティックギター
+%%MIDI bassprog 40  % ベース: バイオリン
+| "F" F2 A2 | "G" G2 B2 | "C" C2 E2 | "Am" A2 C2 | % measure 5-8
+K:C
+%%MIDI program 1  % メロディ: ピアノ
+%%MIDI chordprog 25  % コード: アコースティックギター
+%%MIDI bassprog 45  % ベース: 弦楽器パッド
+| "C" C2 E2 | "F" F2 A2 | "G" G2 B2 | "C" C2 E2 | % measure 9-12
+%%MIDI program 1  % メロディ: ピアノ
+%%MIDI chordprog 49  % コード: ストリングス
+%%MIDI bassprog 57  % ベース: フリューゲルホルン
+| "C" C2 E2 | "G" G2 B2 | "F" F2 A2 | "C" C2 E2 | % measure 13-16

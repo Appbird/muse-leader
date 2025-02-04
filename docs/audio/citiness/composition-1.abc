@@ -1,0 +1,40 @@
+X: 1
+T: Urban Growth Revised Melody
+M: 4/4
+L: 1/4
+Q: 1/4=140
+K: C
+V:1
+%%MIDI gchord c2c2
+%%MIDI chordname Maj7 0 4 7 11
+%%MIDI chordname maj9 0 4 7 11 14
+%%MIDI chordname Maj9 0 4 7 11 14
+%%MIDI chordname min6 0 3 7 9
+%%MIDI chordname m11 0 3 7 10 14 17
+%%MIDI chordname 13 0 4 7 10 14 21
+%%MIDI chordname m13 0 3 7 10 14 21
+%%MIDI chordname 7#9 0 4 7 10 15
+%%MIDI chordname 7#11 0 4 7 10 18
+%%MIDI chordname 7#13 0 4 7 10 22
+%%MIDI chordname 7b9 0 4 7 10 13
+%%MIDI chordname 7b11 0 4 7 10 16
+%%MIDI chordname 7b13 0 4 7 10 20
+%%MIDI chordname add9 0 4 7 14
+%%MIDI chordname add11 0 4 7 17
+%%MIDI chordname add13 0 4 7 21
+%%MIDI program 1         % メロディ: Acoustic Grand Piano
+%%MIDI chordprog 26      % コード: Acoustic Guitar (steel)
+%%MIDI bassprog 43       % ベース: Contrabass
+| "C" E2 G2 | "Am" A3 C | "F" F2 A2 | "G" G3 B | % measure 1-4
+%%MIDI program 1         % メロディ: Acoustic Grand Piano
+%%MIDI chordprog 26      % コード: Acoustic Guitar (steel)
+%%MIDI bassprog 5        % ベース: Electric Bass (finger)
+| "Am" A2 C2 | "F" F3 A | "C" G3 E | "G" B2 G2 | % measure 5-8
+%%MIDI program 82        % メロディ: Lead 2 (sawtooth)
+%%MIDI chordprog 5       % コード: Electric Piano 1
+%%MIDI bassprog 33       % ベース: Acoustic Bass
+| "C9" E4 | "Am13" A2 G2 C2 | "F9" F3 A G2 | "G13(#11)" G2 B2 F2 A2 | % measure 9-12
+%%MIDI program 82        % メロディ: Lead 2 (sawtooth)
+%%MIDI chordprog 27      % コード: Electric Guitar (clean)
+%%MIDI bassprog 39       % ベース: Synth Bass 1
+| "C7(#11)" E3 D C2 | "Am7" A2 G2 A2 | "F13" F3 A C2 | "G7(#9)" G4 | % measure 13-16
