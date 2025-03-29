@@ -37,7 +37,7 @@
             <div class="u-center">
                 <p>Fig.1 Interface of MuseLeader</p>
             </div>
-            
+
             <section>
                 <h2>Paper</h2>
                 <li>under review; (double-blind peer review)</li>
@@ -45,24 +45,20 @@
             <section>
                 <h2>Abstract</h2>
                 <p>
-                    As an application of generative AI, systems that allow users to control the content of generated
-                    outputs
-                    through parameters are being actively developed.
-                    For content with temporal structures, such as music and stories,
-                    systems have been proposed that <span class="u-strong"> enable editing using adjectives as
-                        time-series parameters.</span>
-                    For example, in the story generation system TaleBrush, users can set the main character's happiness
-                    level along a timeline,
-                    while in the music generation system SOUNDRAW, users can adjust the intensity of the music every
-                    four measures.
-                    However, these systems have fixed controllable parameters.
-                    To address this limitation, we propose a system that <span class="u-strong">leverages large language
-                        models (LLMs) to enable users
-                        to define custom parameters for music generation.</span>
-                    As a result,
-                    we confirmed that users can control generated outputs in a time-series manner based on specific
-                    concept (e.g. "strength," "elation."), although the concept remains somewhat limited.
-                    This paper reports on these findings and discusses future challenges.
+                    Designing control methods in music generation systems is essential for music generation along with user preferences.
+	In particular, parameter control provides an effective means of adjusting the atmosphere of generated music, such as ``brightness.''
+	Additionally, some music generation systems allow users to specify transitions in atmospheric intensity.
+	<span class="u-strong">However, parameter control is constrained by the frame problem</span>, where users can only manipulate the parameters
+	predefined by the system. To overcome this limitation, this study proposes an
+	approach that <span class="u-strong">leverages large language models (LLMs) to allow users to define parameter meanings through text.</span>
+	We also introduce MuseLeader, a working music composition system. This is equipped
+	with <span class="u-strong">a graphical user interface supporting customization of semantically defined time-series parameters</span>.
+	User studies indicate that parameters with clear semantic definitions (e.g. ``Powerful,'' ``robotic'')
+	can be effectively controlled according to user intent.
+	Additionally, some users refine their expressive intentions through changing parameter axis.
+	For further advancements, it is essential not only to enhance the inference capabilities of LLMs
+	but also to explore multimodal inputs beyond text to improve the interpretation of complex
+	and nuanced musical concepts.
                 </p>
             </section>
 
