@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/skeleton.css">
+    <link rel="stylesheet" href="css/utility.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MuseLeader: Toward Music Editing through Time-series Semantic Parameters Control using Large Language Model</title>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <h1 class="u-pagetitle">MuseLeader: Toward Music Editing through Time-series Semantic Parameters Control
+                using Large Language Model</h1>
+            <ul>
+                <li>anonymous (_________________)</li>
+                <li>anonymous (_________________)</li>
+            </ul>
+
+        </div>
+    </header>
+    <div class="container">
+        <div class="row">
+            <section>
+                <h2>Paper</h2>
+                <li>under review; (double-blind peer review)</li>
+            </section>
+            <section>
+                <h2>Abstract</h2>
+
+                <div class="u-center">
+                    <img src="img/fig1_interface_of_muse_leader.svg">
+                </div>
+                <div class="u-center">
+                    <p>Fig.1 Interface of MuseLeader</p>
+                </div>
+                
+                <p>
+                    
+                </p>
+            </section>
+
+            <section>
+                <h2>Interface Design</h2>
+                Time-series semantic parameters provide an interface
+                to capture the evolution of a musical piece over time
+                by specifying a mood and its intensity transition.
+                Users adjust the mood's intensity at different time points
+                by dragging circular markers (Figure 1(b)),
+                and they select a specific mood by entering its name in the accompanying text box (Figure 1(a)).
+                For example, entering "intensity" prompts the system to manage changes in the music's intensity;
+                throughout the text, this is referred to as "the parameter axis."
+                When the submit button is pressed, the system generates a musical piece with both a melody and a chord progression,
+                assigning instruments accordingly.
+                After generation, modifying parameters updates only the corresponding portions while preserving the overall motif;
+                if only a subset of parameters is changed, only those specific sections are updated.
+                
+                
+            </section>
+
+            <section>
+                <h2>Editing Examples</h2>
+                <p>
+                    The mood's intensity is represented as a numerical value between <strong>0.0 and 1.0</strong> and can be set for <strong>every 4 measures</strong>.
+                    The higher the intensity value in a given section, the more strongly that mood is expected to be reflected in the music.
+                </p>
+                
+                <p>The music pieces were generated using <strong>gpt-4o-2024-11-20</strong>.</p>
+                <table>
+                    <tr>
+                        <th>Parameter-Axis</th>
+                        <th>(a) 0.00 → 0.25 → 0.50 → 1.00</th>
+                        <th>(b) 0.00 → 0.25 → 1.00 → 1.00</th>
+                        <th>(c) 1.00 → 0.75 → 0.50 → 0.00</th>
+                    </tr>              
+                    <tr>
+                        <td>Strength</td>
+                        <td><audio controls><source src="audio/strength/composition-0.mp3" type="audio/mpeg"></audio></td>
+                        <td><audio controls><source src="audio/strength/composition-1.mp3" type="audio/mpeg"></audio></td>
+                        <td><audio controls><source src="audio/strength/composition-2.mp3" type="audio/mpeg"></audio></td>
+                    </tr>
+                    
+                </table>
+                
+                
+            </section>
+            <section>
+                <h2>Implementation</h2>
+                <div class="u-center">
+                    <img src="img/fig2_system_composition_of_muse_leader.svg">
+                </div>
+                <div class="u-center">
+                    <p>Fig.2 System composition of MuseLeader</p>
+                </div>
+                <h3> on gpt4o-2024-08-06 </h3>
+                <p>We utilize the inference capabilities of a large-scale language model (gpt-4o-2024-08-06) to associate specified words with editing operations along the axis designated by the user.
+                However, the system struggles to accurately reflect user intent in time-series control.
+                To address this issue, we refine the LLM's prompts.
+                </p>
+
+                
+            </section>
+            <section>
+                <h2>Tools</h2>
+                <p>We use these tools for rendering abc format.</p>
+                <ul>
+                    <li>abc2midi ver 4.93</li>
+                    <li>fluidsynth ver 2.3.4</li>
+                    <li>soundfont: <a href="https://schristiancollins.com/generaluser.php">GeneralUser GS 1.471</a>
+                    </li>
+                </ul>
+            </section>
+        </div>
+    </div>
+</body>
+
+</html>

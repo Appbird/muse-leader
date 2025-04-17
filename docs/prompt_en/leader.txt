@@ -43,7 +43,6 @@ This indicates a change in the parameter values. Identify which measures have be
     - 140 = medium/standard  
     - 180 = fast  
     - You should determine BPM based on the **overall trend** of x values, not just the first value.  
-    - Do **not** change the BPM mid-song. It must remain fixed throughout the composition.  
 
 - The beginning of the song should have an *intro-like* feeling, and the final section should have a *sense of closure*.  
 - The key does not have to be limited to C or G. You may choose other keys (Em, Gm, Cm, A, F, B) as appropriate.  

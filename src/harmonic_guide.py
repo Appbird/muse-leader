@@ -13,7 +13,7 @@ from utility.important_path import get_same_name_file, RESULT
 from utility.time_measurement import Stopwatch
 from sequence.param2prompt import input_table
 
-MODEL = Model.gpt_4o_2024_11_20
+MODEL = Model.gpt_4o_2024_08_06
 EXE_DATETIME = datetime.now()
 leader_prompt_textfile = "leader.txt"
 melody_prompt_textfile = "melody_agent.txt"
