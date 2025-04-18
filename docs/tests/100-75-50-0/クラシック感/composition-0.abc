@@ -1,0 +1,24 @@
+X: 1
+T: Transition from Classical to Modern
+M: 4/4
+L: 1/4
+Q: 1/4=120
+K: C
+V:1
+%%MIDI gchord b2b2
+%%MIDI program 1
+%%MIDI chordprog 48
+%%MIDI bassprog 45
+| "C7" G3 E | "F7" F3 D | "G7" G3 F | "C7" E4 | % measure 1-4
+%%MIDI program 1
+%%MIDI chordprog 48
+%%MIDI bassprog 45
+| "Dm7" F3 E | "G7" G2 F2 | "C7" E3 D | "C7" C4 | % measure 5-8
+%%MIDI program 1
+%%MIDI chordprog 19
+%%MIDI bassprog 45
+| "Am7" C3 E | "Dm7" D3 F | "G7" G2 E2 | "C7" C4 | % measure 9-12
+%%MIDI program 1
+%%MIDI chordprog 48
+%%MIDI bassprog 45
+| "C" E2 G2 | "G" G2 B2 | "Dm" F3 D | "C" C4 | % measure 13-16

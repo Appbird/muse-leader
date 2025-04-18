@@ -1,0 +1,24 @@
+X: 1
+T: Graceful Serenade
+M: 4/4
+L: 1/4
+Q: 1/4=120
+K: C
+V:1
+%%MIDI gchord b2b2
+%%MIDI program 1
+%%MIDI chordprog 48
+%%MIDI bassprog 45
+| "C" G2 EG | "F" F2 AF | "G" G2 FG | "C" E4 | % measure 1-4
+%%MIDI program 1
+%%MIDI chordprog 48
+%%MIDI bassprog 45
+| "Dm" F2 AF | "G" B2 GB | "C" EDEG | C4 | % measure 5-8
+%%MIDI program 1
+%%MIDI chordprog 69
+%%MIDI bassprog 45
+| "Am" A2 GA | "Dm" F2 DF | "G" G2 FG | "C" E4 | % measure 9-12
+%%MIDI program 1
+%%MIDI chordprog 48
+%%MIDI bassprog 45
+| "C" G2 EG | "G" F2 FG | "Dm" DEDC | "C" C4 | % measure 13-16

@@ -1,0 +1,24 @@
+X: 1
+T: Whimsical Journey
+M: 4/4
+L: 1/4
+Q: 1/4=120
+K: C
+V:1
+%%MIDI gchord b2b2
+%%MIDI program 1  % Use Acoustic Grand Piano for melody
+%%MIDI chordprog 49  % Use String Ensemble 1 for chords
+%%MIDI bassprog 45  % Use Pizzicato Strings for bass
+| "C" E2 G2 | "F" A2 c2 | "G" d2 B2 | "C" c4 | % measure 1-4
+%%MIDI program 1  % Continue with Acoustic Grand Piano for melody
+%%MIDI chordprog 49  % Continue using String Ensemble 1 for chords
+%%MIDI bassprog 45  % Continue with Pizzicato Strings for bass
+| "Dm7" D2 F2 | "G7" G2 B2 | "Em" E2 G2 | "A7" A4 | % measure 5-8
+%%MIDI program 1  % Continue with Acoustic Grand Piano for melody
+%%MIDI chordprog 17  % Change to Organ for chords
+%%MIDI bassprog 45  % Continue with Pizzicato Strings for bass
+| "Am" c2 A2 | "Dm7" d2 f2 | "G7" g3 e | "E7" e4 | % measure 9-12
+%%MIDI program 1  % Continue with Acoustic Grand Piano for melody
+%%MIDI chordprog 49  % Switch back to String Ensemble 1 for chords
+%%MIDI bassprog 45  % Continue with Pizzicato Strings for bass
+| "F" A2 F2 | "G#dim" ^G2 F2 | "A7" E2 C2 | "C" c4 | % measure 13-16

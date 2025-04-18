@@ -1,0 +1,24 @@
+X: 1
+T: Tranquil Journey
+M: 4/4
+L: 1/4
+Q: 1/4=120
+K: C
+V:1
+%%MIDI gchord b2b2
+%%MIDI program 1 % Piano for melody
+%%MIDI chordprog 48 % String Ensemble 1 for harmony
+%%MIDI bassprog 45 % Pizzicato Strings for bass
+| "C" G2 EG | "F" F2 A>G | "G" E2 DF | "C" E4 | % measure 1-4
+%%MIDI program 1 % Continue with Piano for melody
+%%MIDI chordprog 48 % String Ensemble 1 for harmony
+%%MIDI bassprog 45 % Pizzicato Strings for bass
+| "Dm" D2 F>A | "G" G2 AB | "C" c2 B>A | "C" G4 | % measure 5-8
+%%MIDI program 1 % Continue with Piano for melody
+%%MIDI chordprog 61 % French Horn for harmony
+%%MIDI bassprog 45 % Pizzicato Strings for bass
+| "Am" A2 c>B | "Dm" d2 A>B | "G" G2 F>E | "C" E4 | % measure 9-12
+%%MIDI program 1 % Continue with Piano for melody
+%%MIDI chordprog 48 % String Ensemble 1 for harmony
+%%MIDI bassprog 45 % Pizzicato Strings for bass
+| "C" E2 G>A | "G" B2 A>G | "Dm" F2 D>E| "C" C4 | % measure 13-16

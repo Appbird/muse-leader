@@ -1,0 +1,24 @@
+X: 1
+T: Spring Awakening
+M: 4/4
+L: 1/4
+Q: 1/4=120
+K: C
+V:1
+%%MIDI gchord b2b2
+%%MIDI program 5 % Electric Piano 1
+%%MIDI chordprog 49 % String Ensemble 1
+%%MIDI bassprog 45 % Pizzicato Strings
+| "C" E2 G2 | "F" F2 A2 | "G" G2 B2 | "C" e2 c2 | % measure 1-4
+%%MIDI program 5 % Electric Piano 1
+%%MIDI chordprog 49 % String Ensemble 1
+%%MIDI bassprog 45 % Pizzicato Strings
+| "Dm" d2 f2 | "G" g2 b2 | "C" e2 c2 | "C" e4 | % measure 5-8
+%%MIDI program 5 % Electric Piano 1
+%%MIDI chordprog 73 % Piccolo
+%%MIDI bassprog 45 % Pizzicato Strings
+| "A" A2 e2 | "Dm" d2 f2 | "G" g2 b2 | "C" e4 | % measure 9-12
+%%MIDI program 5 % Electric Piano 1
+%%MIDI chordprog 73 % Piccolo
+%%MIDI bassprog 45 % Pizzicato Strings
+| "C" c2 e2 | "G" g2 b2 | "C" e2 c2 | "C" c4 | % measure 13-16

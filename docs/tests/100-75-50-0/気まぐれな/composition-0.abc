@@ -1,0 +1,24 @@
+X: 1
+T: Whimsical Dance
+M: 4/4
+L: 1/4
+Q: 1/4=120
+K: C
+V:1
+%%MIDI gchord b2b2
+%%MIDI program 1                      % ピアノ
+%%MIDI chordprog 48                   % 弦楽四重奏
+%%MIDI bassprog 45                    % ピチカート・ストリングス
+| "C7" cecg | "Em7" egbe | "Dm7" dfac | "Bdim" bdfb | % measure 1-4
+%%MIDI program 1                      % ピアノ
+%%MIDI chordprog 22                   % フレンチホルン風アコーディオン
+%%MIDI bassprog 45                    % ピチカート・ストリングス
+| "Dm7" dfaf | "G7" gdgb | "E7#9" eg#bd ^f | "A7" aceg | % measure 5-8
+%%MIDI program 1                      % ピアノ
+%%MIDI chordprog 25                   % アコースティック・ギター
+%%MIDI bassprog 45                    % ピチカート・ストリングス
+| "Am" aceg | "Dm7" dfac | "G7" dg^fg | "C7" cege | % measure 9-12
+%%MIDI program 1                      % ピアノ
+%%MIDI chordprog 48                   % 弦楽四重奏
+%%MIDI bassprog 45                    % ピチカート・ストリングス
+| "C" ccga | "G" gbdg | "Am" acea | "F" facf | % measure 13-16

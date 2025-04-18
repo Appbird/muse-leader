@@ -1,0 +1,24 @@
+X: 1
+T: Majestic Flow
+M: 4/4
+L: 1/4
+Q: 1/4=120
+K: C
+V:1
+%%MIDI gchord b2b2
+%%MIDI program 1  % Acoustic Grand Piano for melody
+%%MIDI chordprog 49  % String Ensemble 1 for chords
+%%MIDI bassprog 45  % Pizzicato Strings for bass
+| "C7" e2 gc | "Fsus2" f2 A2 | "Gsus4" g2 a2 | "C7" g2 e2 | % measure 1-4
+%%MIDI program 1  % Acoustic Grand Piano for melody
+%%MIDI chordprog 49  % String Ensemble 1 for chords
+%%MIDI bassprog 45  % Pizzicato Strings for bass
+| "Dm7" f2 ed | "G7" d2 B2 | "Em7" e2 g2 | "Am" a4 | % measure 5-8
+%%MIDI program 1  % Acoustic Grand Piano for melody
+%%MIDI chordprog 19  % Church Organ for chords
+%%MIDI bassprog 45  % Pizzicato Strings for bass
+| "F7" a2 fc | "Dm7" d2 A2 | "G7" g2 B2 | "C7" e4 | % measure 9-12
+%%MIDI program 1  % Acoustic Grand Piano for melody
+%%MIDI chordprog 49  % String Ensemble 1 for chords
+%%MIDI bassprog 45  % Pizzicato Strings for bass
+| "Am7" a2 c'c | "F" f2 d2 | "Gsus4" g2 e2 | "C7" c4 | % measure 13-16

@@ -1,0 +1,24 @@
+X:1
+T:Serene Classical Journey
+M:4/4
+L:1/4
+Q:1/4=120
+K:C
+V:1
+%%MIDI gchord b2b2
+%%MIDI program 0  % Acoustic Grand Piano for melody
+%%MIDI chordprog 49  % String Ensemble 1 for chords
+%%MIDI bassprog 45  % Pizzicato Strings for bass
+| "C" E E G E | "F" F F A G | "G" G G B A | "C" E4 | % measure 1-4
+%%MIDI program 0
+%%MIDI chordprog 49
+%%MIDI bassprog 45
+| "Dm" F A F A | "G" G G B A | "C" C E C E | "C" E4 | % measure 5-8
+%%MIDI program 0
+%%MIDI chordprog 25  % Acoustic Guitar (nylon) for chords
+%%MIDI bassprog 45
+| "Am" A c B A | "Dm" D F E D | "G7" G B A G | "C7" E4 | % measure 9-12
+%%MIDI program 0
+%%MIDI chordprog 49
+%%MIDI bassprog 45
+| "C" E G E D | "G" G B A G | "Dm" F A F E | "C" E4 | % measure 13-16

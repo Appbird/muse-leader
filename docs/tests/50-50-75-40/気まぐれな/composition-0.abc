@@ -1,0 +1,24 @@
+X: 1
+T: Whimsical Rhythm
+M: 4/4
+L: 1/4
+Q: 1/4=120
+K: C
+V:1
+%%MIDI gchord b2b2
+%%MIDI program 1
+%%MIDI chordprog 49
+%%MIDI bassprog 45
+| "C" E2 G2 | "F" A2 A2 | "G" G2 A2 | "C" E4 | % measure 1-4
+%%MIDI program 1
+%%MIDI chordprog 49
+%%MIDI bassprog 45
+| "Dm" F/2E/2 D/2E/2 F/2E/2 | "G" G/2A/2 G2 | "C" c/2B/2 c/2B/2 c/2B/2 | "C" C4 | % measure 5-8
+%%MIDI program 1
+%%MIDI chordprog 5
+%%MIDI bassprog 45
+| "Am" A/2E/2 A/2G/2 A2 | "Dm" F/2D/2 F/2E/2 D/2E/2 | "G" B/2G/2 A2 | "C" E4 | % measure 9-12
+%%MIDI program 1
+%%MIDI chordprog 49
+%%MIDI bassprog 45
+| "C" E2 G2 | "G" B/2A/2 G/2A/2 G2 | "Dm" A2 F2 | "C" E4 | % measure 13-16

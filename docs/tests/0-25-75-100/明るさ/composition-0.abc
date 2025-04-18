@@ -1,0 +1,24 @@
+X:1
+T:Brightening Journey
+M:4/4
+L:1/4
+Q:1/4=120
+K:C
+V:1
+%%MIDI gchord b2b2
+%%MIDI program 1
+%%MIDI chordprog 48
+%%MIDI bassprog 45
+| "C" C2 E2 | "F" F z G | "G" G2 A2 | "C" E4 | % measure 1-4
+%%MIDI program 1
+%%MIDI chordprog 48
+%%MIDI bassprog 45
+| "Dm" D2 F2 | "G" G A B | "C" c2 B2 | z4 | % measure 5-8
+%%MIDI program 1
+%%MIDI chordprog 69
+%%MIDI bassprog 45
+| "Am" A2 c'2 | "Dm" d' z c' | "G" B A G | "C" E4 | % measure 9-12
+%%MIDI program 1
+%%MIDI chordprog 48
+%%MIDI bassprog 45
+| "C" E D C | "G" B A B | "Dm" A F D | "C" C4 | % measure 13-16

@@ -19,13 +19,9 @@
 <body>
     <header>
         <div class="container">
-            <h1 class="u-pagetitle">MuseLeader: Toward Music Editing through Time-series Semantic Parameters Control
-                using Large Language Model</h1>
-            <ul>
-                <li>anonymous (_________________)</li>
-                <li>anonymous (_________________)</li>
-            </ul>
-
+            <h1 class="u-pagetitle">
+                MuseLeader：大規模言語モデルを用いた時系列可変概念パラメータ制御による音楽編集に向けて
+            </h1>
         </div>
     </header>
     <div class="container">
@@ -41,52 +37,97 @@
                     <img src="img/fig1_interface_of_muse_leader.svg">
                 </div>
                 <div class="u-center">
-                    <p>Fig.1 Interface of MuseLeader</p>
+                    <p>Fig.1 MuseLeaderのインタフェース</p>
                 </div>
                 
                 <p>
-                    
+                    音楽生成システムにおける制御手法の設計は，ユーザーの好みに応じた音楽生成を実現する上で不可欠である。
+                    特に，パラメータ制御は「明るさ」のような生成音楽の雰囲気を調整する有効な手段を提供する。
+                    また，一部の音楽生成システムでは，雰囲気の強度の遷移をユーザーが指定可能である。
+                </p><p>
+                    <span class="u-strong">
+                        しかし，パラメータ制御はユーザーがシステムによって事前定義されたパラメータのみを操作できるというフレーム問題に制約されている。
+                    </span>
+                </p><p>
+                    本研究では，この制約を克服するため，
+                    <span class="u-strong">
+                        テキストを介してユーザーがパラメータの意味を定義可能とする大型言語モデル（LLM）活用アプローチ
+                    </span>
+                    を提案する。
+                    さらに，実用的な作曲システムである MuseLeader を紹介する。本システムは，
+                    <span class="u-strong">
+                        意味的に定義された時系列パラメータのカスタマイズを支援するグラフィカルユーザーインターフェース
+                    </span>
+                    を備えている。
+                </p><p>
                 </p>
             </section>
 
             <section>
-                <h2>Interface Design</h2>
-                Time-series semantic parameters provide an interface
-                to capture the evolution of a musical piece over time
-                by specifying a mood and its intensity transition.
-                Users adjust the mood's intensity at different time points
-                by dragging circular markers (Figure 1(b)),
-                and they select a specific mood by entering its name in the accompanying text box (Figure 1(a)).
-                For example, entering "intensity" prompts the system to manage changes in the music's intensity;
-                throughout the text, this is referred to as "the parameter axis."
-                When the submit button is pressed, the system generates a musical piece with both a melody and a chord progression,
-                assigning instruments accordingly.
-                After generation, modifying parameters updates only the corresponding portions while preserving the overall motif;
-                if only a subset of parameters is changed, only those specific sections are updated.
-                
-                
+                <h2>インタフェースデザイン</h2>
+                <p>
+                    時系列セマンティックパラメータは、ムードとその強度の遷移を指定することで楽曲の時間的展開を捉えるインターフェースを提供する。
+                </p><p>
+                    ユーザは円形マーカーをドラッグして異なる時間点におけるムードの強度を調整し（Figure 1(b)）、
+                    付随するテキストボックスにムード名を入力して特定のムードを選択する（Figure 1(a)）。
+                    たとえば「intensity」と入力すると、システムは音楽の強度変化を管理するようになる。
+                </p><p>
+                    本論文全体を通して、これを「パラメータ軸」と呼称する。送信ボタンが押されると、
+                    システムはメロディとコード進行の両方を備えた楽曲を生成し、それぞれの楽器を割り当てる。
+                    生成後にパラメータを変更すると、全体のモチーフを保持しつつ該当部分のみが更新される。
+                    パラメータの一部のみが変更された場合は、当該セクションのみが更新されるのである。
+                </p>
             </section>
 
             <section>
-                <h2>Editing Examples</h2>
+                <h2>テストデータ</h2>
                 <p>
-                    The mood's intensity is represented as a numerical value between <strong>0.0 and 1.0</strong> and can be set for <strong>every 4 measures</strong>.
-                    The higher the intensity value in a given section, the more strongly that mood is expected to be reflected in the music.
+                    ムードの強度は<strong>0.0から1.0</strong>の数値で表され、<strong>4小節ごとに</strong>設定可能である。特定のセクションにおける強度の数値が高いほど、そのムードが音楽により強く反映されるのである。
                 </p>
                 
                 <p>The music pieces were generated using <strong>gpt-4o-2024-11-20</strong>.</p>
                 <table>
                     <tr>
                         <th>Parameter-Axis</th>
-                        <th>(a) 0.00 → 0.25 → 0.50 → 1.00</th>
-                        <th>(b) 0.00 → 0.25 → 1.00 → 1.00</th>
-                        <th>(c) 1.00 → 0.75 → 0.50 → 0.00</th>
+                        <th>(a) 0.00 → 0.25 → 0.75 → 1.00</th>
+                        <th>(b) 1.00 → 0.75 → 0.50 → 0.00</th>
+                        <th>(c) 0.50 → 0.50 → 0.75 → 0.40</th>
                     </tr>              
                     <tr>
-                        <td>Strength</td>
-                        <td><audio controls><source src="audio/strength/composition-0.mp3" type="audio/mpeg"></audio></td>
-                        <td><audio controls><source src="audio/strength/composition-1.mp3" type="audio/mpeg"></audio></td>
-                        <td><audio controls><source src="audio/strength/composition-2.mp3" type="audio/mpeg"></audio></td>
+                        <td>明るさ</td>
+                        <td><audio controls><source src="tests/0-25-75-100/明るさ/composition-0.mp3" type="audio/mpeg"></audio></td>
+                        <td><audio controls><source src="tests/100-75-50-0/明るさ/composition-0.mp3" type="audio/mpeg"></audio></td>
+                        <td><audio controls><source src="tests/50-50-75-40/明るさ/composition-0.mp3" type="audio/mpeg"></audio></td>
+                    </tr>
+                    <tr>
+                        <td>春</td>
+                        <td><audio controls><source src="tests/0-25-75-100/春/composition-0.mp3" type="audio/mpeg"></audio></td>
+                        <td><audio controls><source src="tests/100-75-50-0/春/composition-0.mp3" type="audio/mpeg"></audio></td>
+                        <td><audio controls><source src="tests/50-50-75-40/春/composition-0.mp3" type="audio/mpeg"></audio></td>
+                    </tr>
+                    <tr>
+                        <td>厳かな</td>
+                        <td><audio controls><source src="tests/0-25-75-100/厳かな/composition-0.mp3" type="audio/mpeg"></audio></td>
+                        <td><audio controls><source src="tests/100-75-50-0/厳かな/composition-0.mp3" type="audio/mpeg"></audio></td>
+                        <td><audio controls><source src="tests/50-50-75-40/厳かな/composition-0.mp3" type="audio/mpeg"></audio></td>
+                    </tr>
+                    <tr>
+                        <td>クラシック感</td>
+                        <td><audio controls><source src="tests/0-25-75-100/クラシック感/composition-0.mp3" type="audio/mpeg"></audio></td>
+                        <td><audio controls><source src="tests/100-75-50-0/クラシック感/composition-0.mp3" type="audio/mpeg"></audio></td>
+                        <td><audio controls><source src="tests/50-50-75-40/クラシック感/composition-0.mp3" type="audio/mpeg"></audio></td>
+                    </tr>
+                    <tr>
+                        <td>気まぐれな</td>
+                        <td><audio controls><source src="tests/0-25-75-100/気まぐれな/composition-0.mp3" type="audio/mpeg"></audio></td>
+                        <td><audio controls><source src="tests/100-75-50-0/気まぐれな/composition-0.mp3" type="audio/mpeg"></audio></td>
+                        <td><audio controls><source src="tests/50-50-75-40/気まぐれな/composition-0.mp3" type="audio/mpeg"></audio></td>
+                    </tr>
+                    <tr>
+                        <td>ジャズ感</td>
+                        <td><audio controls><source src="tests/0-25-75-100/ジャズ感/composition-0.mp3" type="audio/mpeg"></audio></td>
+                        <td><audio controls><source src="tests/100-75-50-0/ジャズ感/composition-0.mp3" type="audio/mpeg"></audio></td>
+                        <td><audio controls><source src="tests/50-50-75-40/ジャズ感/composition-0.mp3" type="audio/mpeg"></audio></td>
                     </tr>
                     
                 </table>
@@ -99,19 +140,12 @@
                     <img src="img/fig2_system_composition_of_muse_leader.svg">
                 </div>
                 <div class="u-center">
-                    <p>Fig.2 System composition of MuseLeader</p>
+                    <p>Fig.2 MuseLeaderのシステム構成</p>
                 </div>
-                <h3> on gpt4o-2024-08-06 </h3>
-                <p>We utilize the inference capabilities of a large-scale language model (gpt-4o-2024-08-06) to associate specified words with editing operations along the axis designated by the user.
-                However, the system struggles to accurately reflect user intent in time-series control.
-                To address this issue, we refine the LLM's prompts.
-                </p>
-
-                
             </section>
             <section>
                 <h2>Tools</h2>
-                <p>We use these tools for rendering abc format.</p>
+                <p>ABC形式のレンダリングに用いたツールは以下の通りです。</p>
                 <ul>
                     <li>abc2midi ver 4.93</li>
                     <li>fluidsynth ver 2.3.4</li>
