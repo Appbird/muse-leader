@@ -1,0 +1,30 @@
+X:1
+T:Dynamic Brilliance Variations
+M:4/4
+L:1/8
+K:D
+%%MIDI program 25
+%%MIDI chordprog 24
+%%MIDI bassprog 34
+% セクション1 (明るさ 0.5)
+| "D"   D2 F2 A2 F2 | "G"   G2 A2 B2 A2 | "A7"  A2 c2 e2 g2 | "D"   F2 A2 d2 A2 |
+% セクション2 (明るさ 0.5)
+| "Bm7" B2 d2 f2 a2 | "Em7" E2 G2 B2 d2 | "A7"  A2 c2 e2 g2 | "D"   F2 A2 d2 A2 |
+%%MIDI program 1
+%%MIDI chordprog 8
+% セクション3 (明るさ 1.0)
+| "Dmaj7" D2 F2 A2 d2 | "Gmaj7" G2 B2 d2 g2 | "A7"   A2 c2 e2 g2 | "Dmaj7" F2 A2 d2 A2 |
+% セクション4 (明るさ 1.0)
+| "Dmaj7" D2 E2 F2 G2 | "Gmaj7" G2 A2 B2 d2 | "A7"   A2 c2 e2 g2 | "Dmaj7" F2 G2 A2 F2 |
+%%MIDI program 25
+%%MIDI chordprog 24
+% セクション5 (明るさ 0.5)
+| "D"   D2 F2 A2 F2 | "G"   G2 A2 B2 A2 | "A7"  A2 c2 e2 g2 | "D"   F2 A2 d2 A2 |
+% セクション6 (明るさ 0.5)
+| "Bm7" B2 d2 f2 a2 | "Em7" E2 G2 B2 d2 | "A7"  A2 c2 e2 g2 | "D"   F2 A2 d2 A2 |
+%%MIDI program 1
+%%MIDI chordprog 8
+% セクション7 (明るさ 1.0)
+| "Dmaj7" D2 F2 A2 d2 | "Gmaj7" G2 B2 d2 g2 | "A7"   A2 c2 e2 g2 | "Dmaj7" F2 A2 d2 A2 |
+% セクション8 (明るさ 1.0, エンディング)
+| "Dmaj7" D2 E2 F2 G2 | "Gmaj7" G2 A2 B2 d2 | "A7"   A2 c2 e2 g2 | "Dmaj7" F2 A2 d2 A2 ||

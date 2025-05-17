@@ -1,0 +1,27 @@
+X:1
+T:Serene Brightness
+M:4/4
+L:1/8
+K:D
+%%MIDI program 25
+%%MIDI chordprog 24
+%%MIDI gchord b2b2
+%%MIDI bassprog 34
+% セクション1
+| "D"    D2 F2 A2 F2 | "G"    G2 A2 B2 A2 | "A7"   A2 c2 e2 g2 | "D"    F2 A2 d2 A2 |
+% セクション2
+| "Bm7"  B2 d2 f2 a2 | "Em7"  E2 G2 B2 d2 | "A7"   A2 c2 e2 g2 | "D"    F2 A2 d2 A2 |
+% セクション3
+| "D"    D2 E2 F2 G2 | "G"    G2 A2 B2 d2 | "A7"   A2 c2 e2 g2 | "D"    F2 G2 A2 F2 |
+% セクション4
+| "D"    D2 F2 A2 F2 | "G6"   G2 B2 d2 e2 | "Em7"  E2 G2 B2 d2 | "A7"   A2 c2 e2 g2 |
+%%MIDI program 33  % 楽器変更：このセクションでは新たな音色を導入
+% セクション5
+| "D"    D2 F2 A2 F2 | "F#m7" F2 A2 c2 e2 | "Bm7"  B2 d2 f2 a2 | "A7"   A2 c2 e2 g2 |
+%%MIDI program 25  % 楽器を元に戻す
+% セクション6
+| "D"    D2 F2 A2 F2 | "G"    G2 B2 d2 B2 | "A7"   A2 c2 e2 g2 | "D"    F2 A2 d2 A2 |
+% セクション7
+| "Bm7"  B2 d2 f2 a2 | "Gmaj7" G2 B2 d2 f2 | "Em7"  E2 G2 B2 d2 | "A7"   A2 c2 e2 g2 |
+% セクション8 (エンディング)
+| "D"    D2 F2 A2 F2 | "G"    G2 A2 B2 A2 | "D"    D2 E2 F2 A2 | "D"    F2 A2 d2 A2 ||
