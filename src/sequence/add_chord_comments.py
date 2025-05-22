@@ -12,7 +12,7 @@ def insert_midi_chords(T):
     found = False
     for line in lines:
         new_lines.append(line)
-        if line.strip() == "%%MIDI gchord c2c2" and not found:
+        if line.strip().startswith("K:") and not found:
             new_lines.append(S)  # 次の行にSを挿入
             found = True  # 最初に見つけた場所のみ適用
     
