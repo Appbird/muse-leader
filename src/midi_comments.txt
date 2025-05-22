@@ -5,6 +5,7 @@
 %%MIDI chordname m11 0 3 7 10 14 17
 %%MIDI chordname 13 0 4 7 10 14 21
 %%MIDI chordname m13 0 3 7 10 14 21
+%%MIDI chordname 7alt 0 4 10 13
 %%MIDI chordname 7#9 0 4 7 10 15
 %%MIDI chordname 7#11 0 4 7 10 18
 %%MIDI chordname 7#13 0 4 7 10 22

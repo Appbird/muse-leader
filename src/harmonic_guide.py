@@ -129,12 +129,16 @@ def experiment(dst:Path, param_axis:str, values:list[list[float]]):
 
 
 if __name__ == "__main__":
-    FOLDER_NAME = "ifip-icec2025"
+    FOLDER_NAME = "jsai2025"
     axis_list = [
-        "都会感"
+        # based on MusicCaps top 10 Genre
+        "Electronic", "Classical", "Rock", "Country",
+        "Blues", "Music for children", "New-age music", "Jazz",
+        "Latin America", "Hip hop"
     ]
     params = [
         [1.0, 0.5, 0.0, 1.0],
+        [1.0, 0.5, 1.0, 1.0],
     ]
     for axis_name in axis_list:
         target_path = RESULT(FOLDER_NAME, EXE_DATETIME, axis_name)
