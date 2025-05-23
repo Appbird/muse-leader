@@ -4,6 +4,7 @@ from openai.types.chat.chat_completion_message_param import ChatCompletionMessag
 import utility.important_path as IPATH
 
 class Model(Enum):
+    gpt_4_1_2025_04_14       = "gpt-4.1-2025-04-14"
     gpt_4o_2024_11_20       = "gpt-4o-2024-11-20"
     gpt_4o_2024_08_06       = "gpt-4o-2024-08-06"
     gpt_4o_2024_05_13       = "gpt-4o-2024-05-13"
@@ -42,7 +43,7 @@ class GPT:
         for msg in self.dialog:
             if msg["role"] == "system": continue
             assert "content" in msg
-            print(f"{msg["role"]}: {msg["content"]}\n")
+            print(f"{msg['role']}: {msg['content']}\n")
         print(f"[end dump_dialog]\n\n")
     def ask(self, remember_self_msg:bool) -> str:
         """

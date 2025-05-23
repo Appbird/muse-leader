@@ -29,6 +29,7 @@ def postprocess(extracted_score:str):
         if is_header:
             line = re.sub("maj", "", line)
             line = re.sub("min", "m", line)
+            line = re.sub("♭", "b", line)
             lines.append(line)
         else:
             lines.append(line)
