@@ -4,6 +4,7 @@ from anthropic.types import MessageParam
 import utility.important_path as IPATH
 
 class Model(Enum):
+    claude_sonnet_4_2025_0514 = "claude-sonnet-4-20250514"
     claude_3_7_sonnet_20250219       = "claude-3-7-sonnet-20250219"
     
 class Claude:

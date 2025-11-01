@@ -1,7 +1,7 @@
 import datetime
 from pathlib import Path
 CREDENTIAL = Path("./src/credential")
-PROMPT = Path("./src/prompt-for-claude")
+PROMPT = Path("./src/prompt-for-gpt-4o")
 def RESULT(parent_folder:str, date:datetime.datetime, axis:str) -> Path:
     return Path("./result")/parent_folder/(date.strftime("%Y%m%d_%H%M%S"))/axis
 def CONCUR_RESULT(parent_folder:str, idx:str, axis:str) -> Path:

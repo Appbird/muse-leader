@@ -12,8 +12,10 @@ def diff_param_blocks(
 	if difference == None: return None
 	return { idx for idx,_,_ in difference }
 
-def judge_correctness(item: dict):
-	if (not "result" in item): return False
+def judge_correctness(item: dict) -> bool | None:
+	if (not "result" in item): return None
+	if ("result" in item and len(item["result"]) < 2):
+		return None
 	orig  = item["result"][0]['score']
 	mod  = item["result"][1]['score']
 	params_bef = item["result"][0]['param']
@@ -23,23 +25,21 @@ def judge_correctness(item: dict):
 	diff_param = set()
 	for i, (p1, p2) in enumerate(zip(params_bef, params_aft)):
 		if p1 != p2: diff_param.add(i)
-	
-	if diff_param != diff_blocks:
+	if not diff_blocks: return None
+	if not (diff_param <= diff_blocks):
 		print(item["axis_param"])
 		print(params_bef, params_aft)
 		print(diff_param)
 		print(diff_blocks)
-	return diff_param == diff_blocks
+	return diff_param <= diff_blocks
 
 if __name__ == "__main__":
-	data = json.load(open('./result/claude3-7/result.json', encoding='utf-8'))
+	data = json.load(open('./result/jsai2025/result.json', encoding='utf-8'))
 	total = 0
-	correct = 0
-	trial_idx = 0
+	truepoisitive = 0
 	for trial in data:
-		print(f"{trial_idx=}")
-		trial_idx += 1
 		for conversation in trial:
-			if judge_correctness(conversation): correct += 1
-			total += 1
-	print(correct, total, correct / total)
+			result = judge_correctness(conversation)
+			if result != None: total += 1
+			if result == True: truepoisitive += 1
+	print(truepoisitive, total, truepoisitive / total)

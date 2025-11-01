@@ -19,11 +19,11 @@ def load_prompts() -> list[tuple[str, str]]:
             result.append((Path(filepath).stem, f.read()))
     return result
 
-def load_prompt(title:str) -> str:
+def load_prompt(title:Path) -> str:
     """
     指定されたプロンプトを読み込む。
     """
-    filename = PROMPT_PATH/title
+    filename = title
     # リストとしてpromptsフォルダの中にあるテキストファイルを全て列挙したい
     with open(filename) as f:
         return f.read()

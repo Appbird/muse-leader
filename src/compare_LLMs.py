@@ -8,7 +8,8 @@ from concurrent.futures import ProcessPoolExecutor
 import random
 
 #from LLM.Anthropic import Claude
-from LLM.OpenAI import GPT, Model
+from LLM.Anthropic import Claude, Model as AnthModel
+from LLM.OpenAI import GPT, Model as OpenAIModel
 from sequence.add_chord_comments import insert_midi_chords
 from utility.error_corrections import error_correction
 from utility.logger import write_new_message
@@ -19,9 +20,7 @@ from utility.important_path import CONCUR_RESULT, get_same_name_file
 from utility.time_measurement import Stopwatch
 from sequence.param2prompt import form_table
 
-MODEL = Model.gpt_4o_2024_08_06
 EXE_DATETIME = datetime.now()
-prompt_folder = Path("./src/prompt-for-gpt-4o/")
 naive_prompt_textfile = "naive-without-instruments.txt"
 leader_prompt_textfile = "leader.txt"
 melody_prompt_textfile = "melody_agent.txt"
@@ -29,15 +28,14 @@ chord_prompt_textfile = "chord_agent.txt"
 simple_prompt_textfile = "simple.txt"
 instrument_prompt_textfile = "instrument_agent.txt"
 
-FOLDER_NAME = "jsai2025"
-TRIAL_COUNT = 10
+FOLDER_NAME = "jsai2025-compareMusic-1"
+TRIAL_COUNT = 3
 axis_list = [
 	# based on MusicCaps top 10 Genre
-	"Electronic", "Classical", "Rock", "Country", "Blues",
-	"Music for children", "New-age music", "Jazz", "Latin America", "Hip hop"
+	"クラシック感"
 ]
 
-def write_condition_section(log:TextIOWrapper):
+def write_condition_section(log:TextIOWrapper, MODEL):
 	date = EXE_DATETIME.strftime("%Y-%m-%d %H:%M:%S")
 	log.write(
 		f"# Experimental Conditions\n"
@@ -50,14 +48,15 @@ def write_condition_section(log:TextIOWrapper):
 		"\n" +
 		"\n"
 	)
-def experiment_naive(dst:Path, param_axis:str, values:list[list[float]]):
+
+def experiment_naive(dst:Path, param_axis:str, values:list[list[float]], LLM, MODEL, prompt_folder:Path, trial_name:str):
 	actual_dst = dst.parent/f"{dst.stem}"
 	makedirs(actual_dst, exist_ok=True)
 	composer = GPT(MODEL, load_prompt(prompt_folder/naive_prompt_textfile))
 	count = 0
 	abc_scores:list[dict] = []
 	with open(actual_dst/"experiments.log.md", "w") as log:
-		write_condition_section(log)
+		write_condition_section(log, MODEL)
 		for param_list in values:
 			sw = Stopwatch()
 			sw.start()
@@ -78,7 +77,7 @@ def experiment_naive(dst:Path, param_axis:str, values:list[list[float]]):
 			score = error_correction(original_score)
 			score = insert_midi_chords(score)
 
-			abc_path = actual_dst/f"composition-{count}.abc"
+			abc_path = actual_dst/f"composition-{trial_name}-{count}.abc"
 			with open(abc_path, "w") as f: f.write(score)
 			result = abc2wav_writing(
 				str(get_same_name_file(abc_path, "abc")),
@@ -97,17 +96,18 @@ def experiment_naive(dst:Path, param_axis:str, values:list[list[float]]):
 			count += 1
 		return abc_scores
 
-def experiment(dst:Path, param_axis:str, values:list[list[float]]):
+
+def experiment(dst:Path, param_axis:str, values:list[list[float]], LLM, MODEL, prompt_folder:Path, trial_name:str):
 	actual_dst = dst.parent/f"{dst.stem}"
 	makedirs(actual_dst, exist_ok=True)
-	leader = GPT(MODEL, load_prompt(prompt_folder/leader_prompt_textfile))
-	melody_agent = GPT(MODEL, load_prompt(prompt_folder/melody_prompt_textfile))
-	chord_agent = GPT(MODEL, load_prompt(prompt_folder/chord_prompt_textfile))
-	instrument_agent = GPT(MODEL, load_prompt(prompt_folder/instrument_prompt_textfile))
+	leader = LLM(MODEL, load_prompt(prompt_folder/leader_prompt_textfile))
+	melody_agent = LLM(MODEL, load_prompt(prompt_folder/melody_prompt_textfile))
+	chord_agent = LLM(MODEL, load_prompt(prompt_folder/chord_prompt_textfile))
+	instrument_agent = LLM(MODEL, load_prompt(prompt_folder/instrument_prompt_textfile))
 	count = 0
 	abc_scores:list[dict] = []
 	with open(actual_dst/"experiments.log.md", "w") as log:
-		write_condition_section(log)
+		write_condition_section(log, MODEL)
 		for param_list in values:
 			sw = Stopwatch()
 			sw.start()
@@ -120,7 +120,7 @@ def experiment(dst:Path, param_axis:str, values:list[list[float]]):
 			leader_message = leader.ask(True)
 			write_new_message(log, "leader", leader_message)
 			print("INFO > leader answered.")
-
+			
 			chord_agent.tell(leader_message)
 			chord_msg = chord_agent.ask(True)
 			write_new_message(log, "chord", chord_msg)
@@ -146,7 +146,7 @@ def experiment(dst:Path, param_axis:str, values:list[list[float]]):
 			score = error_correction(original_score)
 			score = insert_midi_chords(score)
 
-			abc_path = actual_dst/f"composition-{count}.abc"
+			abc_path = actual_dst/f"composition-{trial_name}-{count}.abc"
 			with open(abc_path, "w") as f: f.write(score)
 			result = abc2wav_writing(
 				str(get_same_name_file(abc_path, "abc")),
@@ -165,20 +165,9 @@ def experiment(dst:Path, param_axis:str, values:list[list[float]]):
 			count += 1
 		return abc_scores
 
-def make_params(change_prob=0.5):
-	# param[0]: 元のパラメータ
-	choices1 = [1.0, 0.5, 0.0]
-	p0 = [random.choice(choices1) for _ in range(4)]
+def make_params():
 	
-	# param[1]: p0 をベースにランダム変更。ただし値域は choices2
-	p1 = p0.copy()
-	while p0 == p1:
-		choices2 = [0.0, 0.5, 1.0]
-		p1 = [
-			random.choice(choices2) if random.random() < change_prob else v
-			for v in p0
-		]
-	return [p0, p1]
+	return [[0.0, 0.25, 0.5, 1.0]]
 
 def run_trial(i):
 	"""i 番目の試行分だけ実行し、結果リストを返す"""
@@ -187,25 +176,18 @@ def run_trial(i):
 		try:
 			params = make_params()
 			target_path = CONCUR_RESULT(FOLDER_NAME, str(i), axis_name)
-			r = experiment(target_path, axis_name, params)
-			trial_results.append({
-				"date": str(datetime.now()),
-				"result": r,
-				"axis_param": axis_name
-			})
+			folder1 = Path("./src/prompt-for-gpt-4o")
+			folder2 = Path("./src/prompt-for-claude")
+			r1 = experiment_naive(target_path, axis_name, params, GPT, OpenAIModel.gpt_4o_2024_08_06, folder1, "gpt-4-naive")
+			# r2 = experiment(target_path, axis_name, params, Claude, AnthModel.claude_3_7_sonnet_20250219, folder2, "claude-4")
 		except Exception as e:
 			# 例外情報を文字列化して返す
 			print(str(e))
-			trial_results.append({
-                "error": str(e),
-                "params": params,
-                "axis_param": axis_name
-            })
 	return trial_results
 
 def main():
 	# プロセス数を TRIAL_COUNT に合わせる
-	with ProcessPoolExecutor(max_workers=TRIAL_COUNT//2) as executor:
+	with ProcessPoolExecutor(max_workers=TRIAL_COUNT) as executor:
 		# map の返り値は i=0,1,2 の順で trial_results を返す
 		result = list(executor.map(run_trial, range(TRIAL_COUNT)))
 	# JSON に書き出し
